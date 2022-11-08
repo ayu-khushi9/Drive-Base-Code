@@ -53,9 +53,9 @@ public class DriveBase extends LinearOpMode {
            if (dpad_up) {
            power = 1;
            motorFrontLeft = power;
-           motorFrontRight = -power
+           motorFrontRight = power
            motorBackLeft = power;
-           motorBackRight = -power;
+           motorBackRight = power;
            }
            else if (dpad_down) {
            power = 1;
@@ -67,23 +67,29 @@ public class DriveBase extends LinearOpMode {
            else if (dpad_left) {
            power = 1;
            motorFrontLeft = -power;
-           motorFrontRight = -power;
+           motorFrontRight = power;
            motorBackLeft = power;
-           motorBackRight = power;
+           motorBackRight = -power;
            }
            else if (dpad_right) {
            power = 1;
            motorFrontLeft = power;
-           motorFrontRight = power;
+           motorFrontRight = -power;
            motorBackLeft = -power;
-           motorBackRight = -power;
+           motorBackRight = power;
            } else if (bumper_left) {
            power = 1;
-           motorFrontLeft = ;
-           motorFrontRight = ;
-           motorBackLeft = ;
-           motorBackRight = ;
-           } else {
+           motorFrontLeft = -power;
+           motorFrontRight = power;
+           motorBackLeft = -power;
+           motorBackRight = power;
+           } else if (bumper_right) {
+           power = 1;
+           motorFrontLeft = power;
+           motorFrontRight = -power;
+           motorBackLeft = power;
+           motorBackRight = -power;
+           }
            quit;
            }
             // Denominator is the largest motor power (absolute value) or 1
