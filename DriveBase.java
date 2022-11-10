@@ -11,10 +11,10 @@ public class DriveBase extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         // Declare our motors
         // Make sure your ID's match your configuration
-        DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
-        DcMotor motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
-        DcMotor motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
-        DcMotor motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
+        DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motorFrontL");
+        DcMotor motorBackLeft = hardwareMap.dcMotor.get("motorBackL");
+        DcMotor motorFrontRight = hardwareMap.dcMotor.get("motorFrontR");
+        DcMotor motorBackRight = hardwareMap.dcMotor.get("motorBackR");
 
         // Reverse the right side motors
         // Reverse left motors if you are using NeveRests
@@ -34,8 +34,8 @@ public class DriveBase extends LinearOpMode {
             double rt = gamepad1.right_trigger;
            */
            //Initializes power variable, which is set to 1 throughout but can be changed if necessary in code
-           double power;
-           
+           double power = 1;
+           double power2;
            //booleans for if dpad or bumper is being pressed
            boolean dpad_up = gamepad1.dpad_up;
            boolean dpad_down = gamepad1.dpad_down;
@@ -52,44 +52,44 @@ public class DriveBase extends LinearOpMode {
            //sets power values based on what is being pressed
            if (dpad_up) {
            power = 1;
-           motorFrontLeft = power;
-           motorFrontRight = power
-           motorBackLeft = power;
-           motorBackRight = power;
+           frontLeftPower = power;
+           frontRightPower = power;
+           backLeftPower = power;
+           backRightPower = power;
            }
            else if (dpad_down) {
            power = 1;
-           motorFrontLeft = -power;
-           motorFrontRight = power;
-           motorBackLeft = -power;
-           motorBackRight = power;
+           frontLeftPower = -power;
+           frontRightPower = power;
+           backLeftPower = -power;
+           backRightPower = power;
            }
            else if (dpad_left) {
            power = 1;
-           motorFrontLeft = -power;
-           motorFrontRight = power;
-           motorBackLeft = power;
-           motorBackRight = -power;
+           frontLeftPower = -power;
+           frontRightPower = power;
+           backLeftPower = power;
+           backRightPower = -power;
            }
            else if (dpad_right) {
            power = 1;
-           motorFrontLeft = power;
-           motorFrontRight = -power;
-           motorBackLeft = -power;
-           motorBackRight = power;
+           frontLeftPower = power;
+           frontRightPower = -power;
+           backLeftPower = -power;
+           backRightPower = power;
            } else if (bumper_left) {
            power = 1;
-           motorFrontLeft = -power;
-           motorFrontRight = power;
-           motorBackLeft = -power;
-           motorBackRight = power;
+           frontLeftPower = -power;
+           frontRightPower = power;
+           backLeftPower = -power;
+           backRightPower = power;
            } else if (bumper_right) {
            power = 1;
-           motorFrontLeft = power;
-           motorFrontRight = -power;
-           motorBackLeft = power;
-           motorBackRight = -power;
-           }
+           frontLeftPower = power;
+           frontRightPower = -power;
+           backLeftPower = power;
+           backRightPower = -power;
+           } else {
            quit;
            }
             // Denominator is the largest motor power (absolute value) or 1
@@ -103,6 +103,7 @@ public class DriveBase extends LinearOpMode {
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
             */
+            
             //sets powers of motors
             motorFrontLeft.setPower(frontLeftPower);
             motorBackLeft.setPower(backLeftPower);
