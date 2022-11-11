@@ -61,7 +61,7 @@ public class AutonomousOpMode extends LinearOpMode {
         motorFrontLeftPower(-power);
         motorBackRight.setpower(-power);
      }
-     public void Lefttime(double power, long time) throws InterruptedException{
+     public void LeftTime(double power, long time) throws InterruptedException{
         Left(power);
         Thread.sleep(time);
      }
