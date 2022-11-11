@@ -7,6 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @Autonomous(name="First Auto")
 public class AutonomousOpMode extends LinearOpMode {
+    
+    private DcMotor motorFrontLeft = null;
+    private DcMotor motorBackLeft = null;
+    private DcMotor motorFrontRight = null;
+    private DcMotor motorFrontRight = null;
+    
     @Override
     public void runOpMode() throws InterruptedException {
         // Declare our motors
@@ -25,7 +31,7 @@ public class AutonomousOpMode extends LinearOpMode {
         waitForStart();
         
         LeftTime(1, 2000);
-}
+     }
      public void DriveForward(double power){
         motorFrontLeft.setPower(power);
         motorFrontRight.setPower(power);
@@ -45,7 +51,7 @@ public class AutonomousOpMode extends LinearOpMode {
         TurnLeft(power);
         Thread.sleep(time);
      
-     }
+    }
     public void TurnRight(double power){
         motorFrontLeftPower(power);
         motorBackRight.setpower(power);
@@ -54,13 +60,13 @@ public class AutonomousOpMode extends LinearOpMode {
         TurnRight(power);
         Thread.sleep(time);
      
-     }
+    }
     public void Left(double power){
         motorFrontRight.setPower(power);
         motorBackLeft.setpower(power);
         motorFrontLeftPower(-power);
         motorBackRight.setpower(-power);
-     }
+    }
      public void LeftTime(double power, long time) throws InterruptedException{
         Left(power);
         Thread.sleep(time);
