@@ -5,14 +5,14 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp
-public class DriveBase extends LinearOpMode {
-    
+@TeleOp(name = "TeleOp_Comp1")
+public class TeleOp extends LinearOpMode {
+
     private DcMotor motorFrontLeft = null;
     private DcMotor motorBackLeft = null;
     private DcMotor motorFrontRight = null;
     private DcMotor motorFrontRight = null;
-    
+
     @Override
     public void runOpMode() throws InterruptedException {
         // Declare our motors
@@ -24,8 +24,10 @@ public class DriveBase extends LinearOpMode {
 
         // Reverse the right side motors
         // Reverse left motors if you are using NeveRests
+        motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
         waitForStart();
 
@@ -39,77 +41,77 @@ public class DriveBase extends LinearOpMode {
             double lt = gamepad1.left_trigger;
             double rt = gamepad1.right_trigger;
            */
-           //Initializes power variable, which is set to 1 throughout but can be changed if necessary in code
-           double power = 1;
-           double power2;
-           //booleans for if dpad or bumper is being pressed
-           boolean dpad_up = gamepad1.dpad_up;
-           boolean dpad_down = gamepad1.dpad_down;
-           boolean dpad_left = gamepad1.dpad_left;
-           boolean dpad_right = gamepad1.dpad_right;
-           boolean bumper_left = gamepad1.left_bumper;
-           boolean bumper_right = gamepad1.right_bumper;
-           
-           double frontLeftPower;
-           double frontRightPower;
-           double backLeftPower;
-           double backRightPower;
-           
-           //sets power values based on what is being pressed
-           if (dpad_up) {
-           power = 1;
-           frontLeftPower = power;
-           frontRightPower = power;
-           backLeftPower = power;
-           backRightPower = power;
-           }
-           else if (dpad_down) {
-           power = 1;
-           frontLeftPower = -power;
-           frontRightPower = power;
-           backLeftPower = -power;
-           backRightPower = power;
-           }
-           else if (dpad_left) {
-           power = 1;
-           frontLeftPower = -power;
-           frontRightPower = power;
-           backLeftPower = power;
-           backRightPower = -power;
-           }
-           else if (dpad_right) {
-           power = 1;
-           frontLeftPower = power;
-           frontRightPower = -power;
-           backLeftPower = -power;
-           backRightPower = power;
-           } else if (bumper_left) {
-           power = 1;
-           frontLeftPower = -power;
-           frontRightPower = power;
-           backLeftPower = -power;
-           backRightPower = power;
-           } else if (bumper_right) {
-           power = 1;
-           frontLeftPower = power;
-           frontRightPower = -power;
-           backLeftPower = power;
-           backRightPower = -power;
-           } else {
-           quit;
-           }
+            //Initializes power variable, which is set to 1 throughout but can be changed if necessary in code
+            double power = 1;
+            double power2;
+            //booleans for if dpad or bumper is being pressed
+            boolean dpad_up = gamepad1.dpad_up;
+            boolean dpad_down = gamepad1.dpad_down;
+            boolean dpad_left = gamepad1.dpad_left;
+            boolean dpad_right = gamepad1.dpad_right;
+            boolean bumper_left = gamepad1.left_bumper;
+            boolean bumper_right = gamepad1.right_bumper;
+
+            double frontLeftPower;
+            double frontRightPower;
+            double backLeftPower;
+            double backRightPower;
+
+            //sets power values based on what is being pressed
+            if (dpad_up) {
+                power = 1;
+                frontLeftPower = power;
+                frontRightPower = power;
+                backLeftPower = power;
+                backRightPower = power;
+            }
+            else if (dpad_down) {
+                power = 1;
+                frontLeftPower = -power;
+                frontRightPower = power;
+                backLeftPower = -power;
+                backRightPower = power;
+            }
+            else if (dpad_left) {
+                power = 1;
+                frontLeftPower = -power;
+                frontRightPower = power;
+                backLeftPower = power;
+                backRightPower = -power;
+            }
+            else if (dpad_right) {
+                power = 1;
+                frontLeftPower = power;
+                frontRightPower = -power;
+                backLeftPower = -power;
+                backRightPower = power;
+            } else if (bumper_left) {
+                power = 1;
+                frontLeftPower = -power;
+                frontRightPower = power;
+                backLeftPower = -power;
+                backRightPower = power;
+            } else if (bumper_right) {
+                power = 1;
+                frontLeftPower = power;
+                frontRightPower = -power;
+                backLeftPower = power;
+                backRightPower = -power;
+            } else {
+                quit;
+            }
             // Denominator is the largest motor power (absolute value) or 1
             // This ensures all the powers maintain the same ratio, but only when    < this sections is for joystick
             // at least one is out of the range [-1, 1]
-           
-           //joystick
+
+            //joystick
            /* double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
             double frontLeftPower = (y + x + rx) / denominator;
             double backLeftPower = (y - x + rx) / denominator;
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
             */
-            
+
             //sets powers of motors
             motorFrontLeft.setPower(frontLeftPower);
             motorBackLeft.setPower(backLeftPower);
