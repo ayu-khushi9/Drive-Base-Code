@@ -24,8 +24,8 @@ public class AutonomousOpMode extends LinearOpMode {
 
         waitForStart();
         
-        LeftTime(1,2000)
-
+        LeftTime(1, 2000);
+}
      public void DriveForward(double power){
         motorFrontLeft.setPower(power);
         motorFrontRight.setPower(power);
@@ -75,5 +75,5 @@ public class AutonomousOpMode extends LinearOpMode {
         Right(power);
         Thread.sleep(time);
      }
-    }
+    
 }
