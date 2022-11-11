@@ -7,6 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class DriveBase extends LinearOpMode {
+    
+    private DcMotor motorFrontLeft = null;
+    private DcMotor motorBackLeft = null;
+    private DcMotor motorFrontRight = null;
+    private DcMotor motorFrontRight = null;
+    
     @Override
     public void runOpMode() throws InterruptedException {
         // Declare our motors
