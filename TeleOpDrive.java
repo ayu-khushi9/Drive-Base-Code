@@ -6,12 +6,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp(name = "TeleOp_Comp1")
-public class TeleOp extends LinearOpMode {
+public class TeleOpDrive extends LinearOpMode {
 
     private DcMotor motorFrontLeft = null;
     private DcMotor motorBackLeft = null;
     private DcMotor motorFrontRight = null;
-    private DcMotor motorFrontRight = null;
+    private DcMotor motorBackRight = null;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -52,10 +52,10 @@ public class TeleOp extends LinearOpMode {
             boolean bumper_left = gamepad1.left_bumper;
             boolean bumper_right = gamepad1.right_bumper;
 
-            double frontLeftPower;
-            double frontRightPower;
-            double backLeftPower;
-            double backRightPower;
+            double frontLeftPower = 0;
+            double frontRightPower = 0;
+            double backLeftPower = 0;
+            double backRightPower = 0;
 
             //sets power values based on what is being pressed
             if (dpad_up) {
@@ -97,8 +97,6 @@ public class TeleOp extends LinearOpMode {
                 frontRightPower = -power;
                 backLeftPower = power;
                 backRightPower = -power;
-            } else {
-                quit;
             }
             // Denominator is the largest motor power (absolute value) or 1
             // This ensures all the powers maintain the same ratio, but only when    < this sections is for joystick
