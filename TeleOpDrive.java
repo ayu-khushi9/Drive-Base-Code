@@ -24,10 +24,10 @@ public class TeleOpDrive extends LinearOpMode {
 
         // Reverse the right side motors
         // Reverse left motors if you are using NeveRests
-        motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorFrontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorBackLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorBackRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
@@ -42,7 +42,7 @@ public class TeleOpDrive extends LinearOpMode {
             double rt = gamepad1.right_trigger;
            */
             //Initializes power variable, which is set to 1 throughout but can be changed if necessary in code
-            double power = 1;
+            double power = 0.3 ;
             double power2;
             //booleans for if dpad or bumper is being pressed
             boolean dpad_up = gamepad1.dpad_up;
@@ -59,40 +59,40 @@ public class TeleOpDrive extends LinearOpMode {
 
             //sets power values based on what is being pressed
             if (dpad_up) {
-                power = 1;
+
                 frontLeftPower = power;
                 frontRightPower = power;
                 backLeftPower = power;
                 backRightPower = power;
             }
             else if (dpad_down) {
-                power = 1;
+
                 frontLeftPower = -power;
-                frontRightPower = power;
+                frontRightPower = -power;
                 backLeftPower = -power;
-                backRightPower = power;
+                backRightPower = -power;
             }
             else if (dpad_left) {
-                power = 1;
+
                 frontLeftPower = -power;
                 frontRightPower = power;
                 backLeftPower = power;
                 backRightPower = -power;
             }
             else if (dpad_right) {
-                power = 1;
+
                 frontLeftPower = power;
                 frontRightPower = -power;
                 backLeftPower = -power;
                 backRightPower = power;
             } else if (bumper_left) {
-                power = 1;
+
                 frontLeftPower = -power;
                 frontRightPower = power;
                 backLeftPower = -power;
                 backRightPower = power;
             } else if (bumper_right) {
-                power = 1;
+
                 frontLeftPower = power;
                 frontRightPower = -power;
                 backLeftPower = power;
