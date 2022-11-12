@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@Autonomous(name="First Auto")
+@Autonomous(name="Autonomous_Blue")
 public class AutonomousOpModeBlue extends LinearOpMode {
 
     private DcMotor motorFrontLeft = null;
