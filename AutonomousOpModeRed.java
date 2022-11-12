@@ -2,12 +2,11 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@Autonomous(name="First Auto")
-public class AutonomousOpModeBlue extends LinearOpMode {
+@Autonomous(name = "Autonomous_Red")
+public class AutonomousOpModeRed extends LinearOpMode {
 
     private DcMotor motorFrontLeft = null;
     private DcMotor motorBackLeft = null;
@@ -25,63 +24,74 @@ public class AutonomousOpModeBlue extends LinearOpMode {
 
         // Reverse the right side motors
         // Reverse left motors if you are using NeveRests
+        motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
 
         waitForStart();
 
-        RightTime(1, 2000);
+        LeftTime(1.0, 2000);
     }
-    public void DriveForward(double power){
+
+    public void DriveForward(double power) {
         motorFrontLeft.setPower(power);
         motorFrontRight.setPower(power);
         motorBackRight.setPower(power);
         motorBackLeft.setPower(power);
     }
-    public void DriveForwardTime(double power, long time) throws InterruptedException{
+
+    public void DriveForwardTime(double power, long time) throws InterruptedException {
         DriveForward(power);
         Thread.sleep(time);
 
     }
-    public void TurnLeft(double power){
+
+    public void TurnLeft(double power) {
         motorFrontRight.setPower(power);
         motorBackLeft.setPower(power);
     }
-    public void TurnLeftTime(double power, long time) throws InterruptedException{
+
+    public void TurnLeftTime(double power, long time) throws InterruptedException {
         TurnLeft(power);
         Thread.sleep(time);
 
     }
-    public void TurnRight(double power){
+
+    public void TurnRight(double power) {
         motorFrontLeft.setPower(power);
         motorBackRight.setPower(power);
     }
-    public void TurnRightTime(double power, long time) throws InterruptedException{
+
+    public void TurnRightTime(double power, long time) throws InterruptedException {
         TurnRight(power);
         Thread.sleep(time);
 
     }
-    public void Left(double power){
+
+    public void Left(double power) {
         motorFrontRight.setPower(power);
         motorBackLeft.setPower(power);
         motorFrontLeft.setPower(-power);
         motorBackRight.setPower(-power);
     }
-    public void LeftTime(double power, long time) throws InterruptedException{
+
+    public void LeftTime(double power, long time) throws InterruptedException {
         Left(power);
         Thread.sleep(time);
     }
-    public void Right(double power){
+
+    public void Right(double power) {
         motorFrontRight.setPower(-power);
         motorBackLeft.setPower(-power);
         motorFrontLeft.setPower(power);
         motorBackRight.setPower(power);
     }
-    public void RightTime(double power, long time) throws InterruptedException{
+
+    public void RightTime(double power, long time) throws InterruptedException {
         Right(power);
         Thread.sleep(time);
     }
 
 }
-
