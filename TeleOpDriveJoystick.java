@@ -34,27 +34,43 @@ public class TeleOpDrive extends LinearOpMode {
         if (isStopRequested()) return;
 
         while (opModeIsActive()) {
-            double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
-            double rx = gamepad1.right_stick_x;
-            double lt = gamepad1.left_trigger;
-            double rt = gamepad1.right_trigger;
-           
-            //Initializes power variable, which is set to 1 throughout but can be changed if necessary in code
-            double power = 0.3 ;
-            double power2;
-            //booleans for if dpad or bumper is being pressed
-            boolean dpad_up = gamepad1.dpad_up;
+            //
+            /* boolean dpad_up = gamepad1.dpad_up;
             boolean dpad_down = gamepad1.dpad_down;
             boolean dpad_left = gamepad1.dpad_left;
             boolean dpad_right = gamepad1.dpad_right;
             boolean bumper_left = gamepad1.left_bumper;
             boolean bumper_right = gamepad1.right_bumper;
-
+            */
             double frontLeftPower = 0;
             double frontRightPower = 0;
             double backLeftPower = 0;
             double backRightPower = 0;
+            
+            double y = -gamepad1.left_stick_y; // Remember, this is reversed!
+            double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
+            double rx = gamepad1.right_stick_x;
+           // double lt = gamepad1.left_trigger;
+           // double rt = gamepad1.right_trigger;
+            if (y > 0.1 || y < -0.1) {
+                frontLeftPower = (y + x);
+                backLeftPower = (y - x);
+                frontRightPower = (y - x);
+                backRightPower = (y + x);
+            } else if (x > 0.1 || y < -0.1) {
+                frontLeftPower = (y + x);
+                backLeftPower = (y - x);
+                frontRightPower = (y - x);
+                backRightPower = (y + x);
+            } else if (rx > 0.1 || rx < -0.1) {
+                frontLeftPower = (rx);
+                backLeftPower = (rx);
+                frontRightPower = (-rx);
+                backRightPower = (-rx);
+            }
+            
+            
+
 
             //sets power values based on what is being pressed
            
