@@ -53,38 +53,25 @@ public class TeleOpDrive extends LinearOpMode {
            // double lt = gamepad1.left_trigger;
            // double rt = gamepad1.right_trigger;
             if (y > 0.1 || y < -0.1) {
-                frontLeftPower = (y + x);
-                backLeftPower = (y - x);
-                frontRightPower = (y - x);
-                backRightPower = (y + x);
-            } else if (x > 0.1 || y < -0.1) {
-                frontLeftPower = (y + x);
-                backLeftPower = (y - x);
-                frontRightPower = (y - x);
-                backRightPower = (y + x);
-            } else if (rx > 0.1 || rx < -0.1) {
-                frontLeftPower = (rx);
-                backLeftPower = (rx);
-                frontRightPower = (-rx);
-                backRightPower = (-rx);
+                frontLeftPower = (y + x) / 2;
+                backLeftPower = (y - x) / 2;
+                frontRightPower = (y - x) / 2;
+                backRightPower = (y + x) / 2;
+            }
+            if (x > 0.1 || x < -0.1) {
+                frontLeftPower = (y + x) / 2;
+                backLeftPower = (y - x) / 2;
+                frontRightPower = (y - x) / 2;
+                backRightPower = (y + x) / 2;
+            }
+            //Right Joystick for turning
+            if (rx > 0.1 || rx < -0.1) {
+                frontLeftPower = (rx) / 1.5;
+                backLeftPower = (rx) / 1.5;
+                frontRightPower = (-rx) / 1.5;
+                backRightPower = (-rx) / 1.5;
             }
             
-            
-
-
-            //sets power values based on what is being pressed
-           
-            // Denominator is the largest motor power (absolute value) or 1
-            // This ensures all the powers maintain the same ratio, but only when    < this sections is for joystick
-            // at least one is out of the range [-1, 1]
-
-            //joystick
-           /* double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-            double frontLeftPower = (y + x + rx) / denominator;
-            double backLeftPower = (y - x + rx) / denominator;
-            double frontRightPower = (y - x - rx) / denominator;
-            double backRightPower = (y + x - rx) / denominator;
-            */
 
             //sets powers of motors
             motorFrontLeft.setPower(frontLeftPower);
