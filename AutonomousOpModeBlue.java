@@ -29,7 +29,8 @@ public class AutonomousOpModeBlue extends LinearOpMode {
         motorBackLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
-
+        double power = 0;
+        long time = 0;
 
         waitForStart();
 
