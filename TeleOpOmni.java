@@ -46,12 +46,12 @@ public class TeleOpDrive extends LinearOpMode {
             double frontRightPower = 0;
             double backLeftPower = 0;
             double backRightPower = 0;
-            
+
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
             double x = gamepad1.left_stick_x; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
-           // double lt = gamepad1.left_trigger;
-           // double rt = gamepad1.right_trigger;
+            // double lt = gamepad1.left_trigger;
+            // double rt = gamepad1.right_trigger;
             if (y > 0.1 || y < -0.1) {
                 frontLeftPower = (y) / 2;
                 backRightPower = (y) / 2;
@@ -62,12 +62,11 @@ public class TeleOpDrive extends LinearOpMode {
             }
             //Right Joystick for turning
             if (rx > 0.1 || rx < -0.1) {
-                frontLeftPower = (rx) / 1.5;
-                backLeftPower = (rx) / 1.5;
-                frontRightPower = (-rx) / 1.5;
-                backRightPower = (-rx) / 1.5;
+                frontLeftPower = (rx) / 2;
+                backLeftPower = (-rx) / 2;
+                frontRightPower = (rx) / 2;
             }
-            
+
 
             //sets powers of motors
             motorFrontLeft.setPower(frontLeftPower);
@@ -77,4 +76,3 @@ public class TeleOpDrive extends LinearOpMode {
         }
     }
 }
-
