@@ -52,55 +52,11 @@ public class TeleOpDrive extends LinearOpMode {
             double rx = gamepad1.right_stick_x;
             // double lt = gamepad1.left_trigger;
             // double rt = gamepad1.right_trigger;
-            if (y > 0.2 || y < -0.2) {
-                frontLeftPower = (y) / 2;
-                backRightPower = (y) / 2;
-                if (x == 1 || x == -1) {
-                    frontLeftPower = (y) / 1.5;
-                    backRightPower = (y) / 1.5;
-                }
-                if (x < .25 || x > -.25) {
-                    frontRightPower = 0;
-                    backLeftPower = 0;
-                }
-            } else if(Math.abs(y)>Math.abs(x)) {
-                frontLeftPower = (y) / 2;
-                backRightPower = (y) / 2;
-
-                backLeftPower = 0;
-                frontRightPower = 0;
-            }
-            if (x > 0.25 || x < -0.25) {
-                backLeftPower = (x) / 1.8;
-                frontRightPower = (x) / 1.8;
-                if (x == 1 || x == -1) {
-                    backLeftPower = (x) / 1.5;
-                    frontRightPower = (x) / 1.5;
-                }
-                if (y < .25 || y > -.25) {
-                    frontLeftPower = 0;
-                    backRightPower = 0;
-                }
-            } else if (Math.abs(x)>Math.abs(y)) {
-                backLeftPower = (x) / 2;
-                frontRightPower = (x) / 2;
-
-                frontLeftPower = 0;
-                backRightPower = 0;
-            }
-            //Right Joystick for turning
-            if (rx > 0.05 || rx < -0.05) {
-                frontLeftPower = (rx) / 3;
-                backLeftPower = (-rx) / 2.5;
-                frontRightPower = (rx) / 2.5;
-                backRightPower = (-rx) / 3;
-                if (rx == 1 || rx == -1) {
-                    frontLeftPower = (rx) / 2.5;
-                    backLeftPower = (-rx) / 1.5;
-                    frontRightPower = (rx) / 1.5;
-                    backRightPower = (-rx) / 2.5;
-                }
-            }
+            //mecanum drive joystick, rx is right stick x for turning, y and x is left stick x for movement/strafing
+            frontLeftPower = (y + x + rx);
+            backLeftPower = (y - x + rx);
+            frontRightPower = (y - x - rx);
+            backRightPower = (y + x - rx);
 
 
             //sets powers of motors
