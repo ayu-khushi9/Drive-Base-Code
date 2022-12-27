@@ -35,14 +35,14 @@ public class AutonomousOpModeRed extends LinearOpMode {
         MoveLeftTime(0.8, 1000);
     }
 
-    public void MoveLeft(double power){
-        motorFrontRight.setPower(power);
-        motorBackLeft.setPower(power);
-    }
-    public void MoveLeftTime(double power, long time) throws InterruptedException {
-        MoveLeft(power);
-        Thread.sleep(time);
-    }
+//     public void MoveLeft(double power){
+//         motorFrontRight.setPower(power);
+//         motorBackLeft.setPower(power);
+//     }
+//     public void MoveLeftTime(double power, long time) throws InterruptedException {
+//         MoveLeft(power);
+//         Thread.sleep(time);
+//     }
   public void DriveForward(double power)  {motorFrontLeft.setPower(power);
 
        motorFrontRight.setPower(power);
