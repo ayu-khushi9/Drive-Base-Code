@@ -36,63 +36,63 @@ public class AutonomousOpModeBlue extends LinearOpMode {
     }
 
 
-    public void MoveRight(double power){
-        motorFrontRight.setPower(-power);
-        motorBackLeft.setPower(-power);
-    }
-    public void MoveRightTime(double power, long time) throws InterruptedException {
-        MoveRight(power);
-        Thread.sleep(time);
-    }
-//    public void DriveForward(double power){
-//        motorFrontLeft.setPower(power);
-//        motorFrontRight.setPower(power);
-//        motorBackRight.setPower(power);
-//        motorBackLeft.setPower(power);
-//    }
-//    public void DriveForwardTime(double power, long time) throws InterruptedException{
-//        DriveForward(power);
-//        Thread.sleep(time);
-//
-//    }
-//    public void TurnLeft(double power){
-//        motorFrontRight.setPower(power);
-//        motorBackLeft.setPower(power);
-//    }
-//    public void TurnLeftTime(double power, long time) throws InterruptedException{
-//        TurnLeft(power);
-//        Thread.sleep(time);
-//
-//    }
-//    public void TurnRight(double power){
-//        motorFrontLeft.setPower(power);
-//        motorBackRight.setPower(power);
-//    }
-//    public void TurnRightTime(double power, long time) throws InterruptedException{
-//        TurnRight(power);
-//        Thread.sleep(time);
-//
-//    }
-//    public void Left(double power){
-//        motorFrontRight.setPower(power);
-//        motorBackLeft.setPower(power);
-//        motorFrontLeft.setPower(-power);
-//        motorBackRight.setPower(-power);
-//    }
-//    public void LeftTime(double power, long time) throws InterruptedException{
-//        Left(power);
-//        Thread.sleep(time);
-//    }
-//    public void Right(double power){
-//        motorFrontRight.setPower(-power);
-//        motorBackLeft.setPower(-power);
-//        motorFrontLeft.setPower(power);
-//        motorBackRight.setPower(power);
-//    }
-//    public void RightTime(double power, long time) throws InterruptedException{
-//        Right(power);
-//        Thread.sleep(time);
-//    }
+//     public void MoveRight(double power){
+//         motorFrontRight.setPower(-power);
+//         motorBackLeft.setPower(-power);
+//     }
+//     public void MoveRightTime(double power, long time) throws InterruptedException {
+//         MoveRight(power);
+//         Thread.sleep(time);
+//     }
+   public void DriveForward(double power){
+       motorFrontLeft.setPower(power);
+       motorFrontRight.setPower(power);
+       motorBackRight.setPower(power);
+       motorBackLeft.setPower(power);
+   }
+   public void DriveForwardTime(double power, long time) throws InterruptedException{
+       DriveForward(power);
+       Thread.sleep(time);
+
+   }
+   public void TurnLeft(double power){
+       motorFrontRight.setPower(power);
+       motorBackLeft.setPower(power);
+   }
+   public void TurnLeftTime(double power, long time) throws InterruptedException{
+       TurnLeft(power);
+       Thread.sleep(time);
+
+   }
+   public void TurnRight(double power){
+       motorFrontLeft.setPower(power);
+       motorBackRight.setPower(power);
+   }
+   public void TurnRightTime(double power, long time) throws InterruptedException{
+       TurnRight(power);
+       Thread.sleep(time);
+
+   }
+   public void Left(double power){
+       motorFrontRight.setPower(power);
+       motorBackLeft.setPower(power);
+       motorFrontLeft.setPower(-power);
+       motorBackRight.setPower(-power);
+   }
+   public void LeftTime(double power, long time) throws InterruptedException{
+       Left(power);
+       Thread.sleep(time);
+   }
+   public void Right(double power){
+       motorFrontRight.setPower(-power);
+       motorBackLeft.setPower(-power);
+       motorFrontLeft.setPower(power);
+       motorBackRight.setPower(power);
+   }
+   public void RightTime(double power, long time) throws InterruptedException{
+       Right(power);
+       Thread.sleep(time);
+   }
 
 }
 
