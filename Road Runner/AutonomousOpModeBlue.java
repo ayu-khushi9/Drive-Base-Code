@@ -32,7 +32,7 @@ public class AutonomousOpModeBlue extends LinearOpMode {
 
         waitForStart();
 
-        MoveRightTime(0.8, 1000);
+        RightTime(0.8, 1000);
     }
 
 
