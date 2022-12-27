@@ -32,7 +32,7 @@ public class AutonomousOpModeRed extends LinearOpMode {
 
         waitForStart();
 
-        MoveLeftTime(0.8, 1000);
+        LeftTime(0.8, 1000);
     }
 
 //     public void MoveLeft(double power){
