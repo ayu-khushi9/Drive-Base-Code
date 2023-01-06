@@ -66,7 +66,10 @@ public class AutonomousOpModeBlue extends LinearOpMode {
    }
    public void TurnRight(double power){
        motorFrontLeft.setPower(power);
+       motorFrontRight.setPower(power);
        motorBackRight.setPower(power);
+       motorBackLeft.setPower(power);
+       
    }
    public void TurnRightTime(double power, long time) throws InterruptedException{
        TurnRight(power);
@@ -85,7 +88,7 @@ public class AutonomousOpModeBlue extends LinearOpMode {
    }
    public void Right(double power){
        motorFrontRight.setPower(-power);
-       motorBackLeft.setPower(-power);
+       motorBackLeft.setPower(power);
        motorFrontLeft.setPower(power);
        motorBackRight.setPower(power);
    }
