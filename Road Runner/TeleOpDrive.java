@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp(name = "TeleOp_Omni")
+@TeleOp(name = "TeleOp_Mech")
 public class TeleOpDrive extends LinearOpMode {
 
     private DcMotor motorFrontLeft = null;
@@ -25,7 +25,7 @@ public class TeleOpDrive extends LinearOpMode {
         // Reverse the right side motors
         // Reverse left motors if you are using NeveRests
         motorFrontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
-        motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorFrontRight.setDirection(DcMotorSimple.Direction.FORWARD);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -53,10 +53,42 @@ public class TeleOpDrive extends LinearOpMode {
             // double lt = gamepad1.left_trigger;
             // double rt = gamepad1.right_trigger;
             //mecanum drive joystick, rx is right stick x for turning, y and x is left stick x for movement/strafing
-            frontLeftPower = (y + x + rx);
-            backLeftPower = (y - x + rx);
-            frontRightPower = (y - x - rx);
-            backRightPower = (y + x - rx);
+
+            if(y> 0.15 || y < -0.15){
+                frontLeftPower = (y)/2;
+                backLeftPower = (y)/2;
+                frontRightPower = (y)/2;
+                backRightPower = (y)/2;
+            }
+            if(x> 0.2 || x < -0.2){
+                frontLeftPower = (x)/2;
+                backLeftPower = (-x)/2;
+                frontRightPower = (-x)/2;
+                backRightPower = (x)/2;
+            }
+            if(rx > .1 || rx < -.1) {
+                frontLeftPower = (rx)/2;
+                backLeftPower = (rx)/2;
+                frontRightPower = (-rx)/2;
+                backRightPower = (-rx)/2;
+            }
+
+            /*boolean blue = gamepad1.x;
+            boolean yellow = gamepad1.y;
+            boolean green = gamepad1.a;
+            boolean red = gamepad1.b;
+            if(blue){
+                frontLeftPower = .5;
+            }
+            if(yellow){
+                frontRightPower = .5;
+            }
+            if(green){
+                backLeftPower= .5;
+            }
+            if(red){
+                backRightPower = .5;
+            }*/
 
 
             //sets powers of motors
