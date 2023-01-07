@@ -42,36 +42,21 @@ public class TeleOpDrive extends LinearOpMode {
             boolean bumper_left = gamepad1.left_bumper;
             boolean bumper_right = gamepad1.right_bumper;
             */
-            double frontLeftPower = 0;
-            double frontRightPower = 0;
-            double backLeftPower = 0;
-            double backRightPower = 0;
 
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = gamepad1.left_stick_x; // Counteract imperfect strafing
+            double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
-            // double lt = gamepad1.left_trigger;
-            // double rt = gamepad1.right_trigger;
-            //mecanum drive joystick, rx is right stick x for turning, y and x is left stick x for movement/strafing
 
-            if(y> 0.15 || y < -0.15){
-                frontLeftPower = (y)/2;
-                backLeftPower = (y)/2;
-                frontRightPower = (y)/2;
-                backRightPower = (y)/2;
-            }
-            if(x> 0.2 || x < -0.2){
-                frontLeftPower = (x)/2;
-                backLeftPower = (-x)/2;
-                frontRightPower = (-x)/2;
-                backRightPower = (x)/2;
-            }
-            if(rx > .1 || rx < -.1) {
-                frontLeftPower = (rx)/2;
-                backLeftPower = (rx)/2;
-                frontRightPower = (-rx)/2;
-                backRightPower = (-rx)/2;
-            }
+
+            double frontLeftPower = (y + x + rx) / 1.5;
+            double backLeftPower = (y - x + rx) / 1.5;
+            double frontRightPower = (y - x - rx) / 1.5;
+            double backRightPower = (y + x - rx) / 1.5;
+
+            motorFrontLeft.setPower(frontLeftPower);
+            motorBackLeft.setPower(backLeftPower);
+            motorFrontRight.setPower(frontRightPower);
+            motorBackRight.setPower(backRightPower);
 
             /*boolean blue = gamepad1.x;
             boolean yellow = gamepad1.y;
