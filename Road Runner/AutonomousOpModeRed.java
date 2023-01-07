@@ -26,7 +26,7 @@ public class AutonomousOpModeRed extends LinearOpMode {
         // Reverse left motors if you are using NeveRests
         motorFrontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         motorBackLeft.setDirection(DcMotorSimple.Direction.FORWARD);
-        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorFrontRight.setDirection(DcMotorSimple.Direction.FORWARD);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
@@ -35,14 +35,14 @@ public class AutonomousOpModeRed extends LinearOpMode {
         LeftTime(0.8, 1000);
     }
 
-//     public void MoveLeft(double power){
-//         motorFrontRight.setPower(power);
-//         motorBackLeft.setPower(power);
-//     }
-//     public void MoveLeftTime(double power, long time) throws InterruptedException {
-//         MoveLeft(power);
-//         Thread.sleep(time);
-//     }
+//    public void MoveLeft(double power){
+//        motorFrontRight.setPower(power);
+//        motorBackLeft.setPower(power);
+//    }
+//    public void MoveLeftTime(double power, long time) throws InterruptedException {
+//        MoveLeft(power);
+//        Thread.sleep(time);
+//    }
   public void DriveForward(double power)  {motorFrontLeft.setPower(power);
 
        motorFrontRight.setPower(power);
