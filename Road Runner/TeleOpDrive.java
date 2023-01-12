@@ -44,14 +44,23 @@ public class TeleOpDrive extends LinearOpMode {
             */
 
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
+            double x = gamepad1.left_stick_x; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
 
+            double limit1 = 2;
+            double limit2 = 1.2;
+            double limit3 = 3;
+            double frontLeftPower = (y + x + (rx/limit2)) / limit1;
+            double backLeftPower = (y - x + (rx/limit2)) / limit1;
+            double frontRightPower = (y - x - (rx/limit2)) / limit1;
+            double backRightPower = (y + x - (rx/limit2)) / limit1;
 
-            double frontLeftPower = (y + x + rx) / 1.5;
-            double backLeftPower = (y - x + rx) / 1.5;
-            double frontRightPower = (y - x - rx) / 1.5;
-            double backRightPower = (y + x - rx) / 1.5;
+            if(Math.abs(y) < 0.2 && Math.abs(x) < 0.2) {
+                frontLeftPower = (y + x + (rx/limit2)) / limit3;
+                backLeftPower = (y - x + (rx/limit2)) / limit3;
+                frontRightPower = (y - x - (rx/limit2)) / limit3;
+                backRightPower = (y + x - (rx/limit2)) / limit3;
+            }
 
             motorFrontLeft.setPower(frontLeftPower);
             motorBackLeft.setPower(backLeftPower);
