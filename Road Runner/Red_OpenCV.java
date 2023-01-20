@@ -198,21 +198,21 @@ public class Red_OpenCV extends LinearOpMode
              */
             if(tagOfInterest.id == left) {
             //left code
-                LeftTime(.5,1000);
-                RightTime(.3,500);
-                DriveForwardTime(.5, 1000);
+                LeftTime(.55,1000);
+                RightTime(.22,300);
+                DriveForwardTime(.5, 680);
             } if(tagOfInterest.id == middle) {
             //middle code
-                LeftTime(.5,1000);
-                RightTime(.3,500);
-                DriveForwardTime(.5, 1000);
-                RightTime(.5, 1000);
+                LeftTime(.55,1000);
+                RightTime(.22,300);
+                DriveForwardTime(.5, 680);
+                RightTime(.5, 950);
             } if(tagOfInterest.id == right) {
             //right code
-                LeftTime(.5,1000);
-                RightTime(.3,500);
-                DriveForwardTime(.5, 1000);
-                RightTime(.5, 2000);
+                LeftTime(.55,1000);
+                RightTime(.22,300);
+                DriveForwardTime(.5, 680);
+                RightTime(.5, 1975);
             }
 
             // e.g.
