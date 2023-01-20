@@ -198,21 +198,21 @@ public class Blue_OpenCV extends LinearOpMode
              */
             if(tagOfInterest.id == left) {
             //left code
-                RightTime(.5,1000);
-                LeftTime(.3,500);
-                DriveForwardTime(.5, 1000);
-                LeftTime(.5,2000);
+                RightTime(.55,1000);
+                LeftTime(.25,320);
+                DriveForwardTime(.5, 660);
+                LeftTime(.5,2075);
             } if(tagOfInterest.id == middle) {
             //middle code
-                RightTime(.5,1000);
-                LeftTime(.3,500);
-                DriveForwardTime(.5, 1000);
-                LeftTime(.5, 1000);
+                RightTime(.55,1000);
+                LeftTime(.25,320);
+                DriveForwardTime(.5, 680);
+                LeftTime(.5, 1050);
             } if(tagOfInterest.id == right) {
             //right code
-                RightTime(.5,1000);
-                LeftTime(.3,300);
-                DriveForwardTime(.5, 1000);
+                RightTime(.55,1000);
+                LeftTime(.25,320);
+                DriveForwardTime(.5, 700);
          }
 
             // e.g.
