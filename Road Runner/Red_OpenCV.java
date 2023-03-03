@@ -27,6 +27,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.AprilTagDetectionPipeline;
 import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
@@ -116,7 +117,7 @@ public class Red_OpenCV extends LinearOpMode
 
                 for(AprilTagDetection tag : currentDetections)
                 {
-                        if(tag.id == left || tag.id == middle || tag.id == right)
+                    if(tag.id == left || tag.id == middle || tag.id == right)
                     {
                         tagOfInterest = tag;
                         tagFound = true;
@@ -197,23 +198,23 @@ public class Red_OpenCV extends LinearOpMode
              * Insert your autonomous code here, probably using the tag pose to decide your configuration.
              */
             if(tagOfInterest.id == left) {
-            //left code
-                LeftTime(.55,1000);
-                RightTime(.22,300);
-                DriveForwardTime(.5, 680);
+                //left code
+                LeftTime(-.7,1000);
+                RightTime(-.7,300);
+                DriveForwardTime(-.65, 680);
             } if(tagOfInterest.id == middle) {
             //middle code
-                LeftTime(.55,1000);
-                RightTime(.22,300);
-                DriveForwardTime(.5, 680);
-                RightTime(.5, 950);
-            } if(tagOfInterest.id == right) {
+            LeftTime(-.7,1000);
+            RightTime(-.3,300);
+            DriveForwardTime(-.65, 680);
+            RightTime(-.65, 950);
+        } if(tagOfInterest.id == right) {
             //right code
-                LeftTime(.55,1000);
-                RightTime(.22,300);
-                DriveForwardTime(.5, 680);
-                RightTime(.5, 1975);
-            }
+            LeftTime(-.7,1000);
+            RightTime(-.3,300);
+            DriveForwardTime(-.65, 680);
+            RightTime(-.65, 1975);
+        }
 
             // e.g.
             if(tagOfInterest.pose.x <= 20)
@@ -234,7 +235,7 @@ public class Red_OpenCV extends LinearOpMode
         /* You wouldn't have this in your autonomous, this is just to prevent the sample from ending */
         while (opModeIsActive()) {sleep(20);}
     }
-    public void DriveForward(double power)  {motorFrontLeft.setPower(power);
+    public void DriveForward(double power)  {
         motorFrontLeft.setPower(power);
         motorFrontRight.setPower(power);
         motorBackLeft.setPower(power);
