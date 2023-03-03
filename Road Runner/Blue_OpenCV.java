@@ -27,6 +27,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.AprilTagDetectionPipeline;
 import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
@@ -197,23 +198,23 @@ public class Blue_OpenCV extends LinearOpMode
              * Insert your autonomous code here, probably using the tag pose to decide your configuration.
              */
             if(tagOfInterest.id == left) {
-            //left code
-                RightTime(.55,1000);
-                LeftTime(.25,320);
-                DriveForwardTime(.5, 660);
-                LeftTime(.5,2075);
+                //left code
+                RightTime(-.75,1000);
+                LeftTime(-.35,320);
+                DriveForwardTime(-.65, 660);
+                LeftTime(-.65,2075);
             } if(tagOfInterest.id == middle) {
             //middle code
-                RightTime(.55,1000);
-                LeftTime(.25,320);
-                DriveForwardTime(.5, 680);
-                LeftTime(.5, 1050);
-            } if(tagOfInterest.id == right) {
+            RightTime(-.7,1000);
+            LeftTime(-.35,320);
+            DriveForwardTime(-.65, 680);
+            LeftTime(-.65, 1050);
+        } if(tagOfInterest.id == right) {
             //right code
-                RightTime(.55,1000);
-                LeftTime(.25,320);
-                DriveForwardTime(.5, 700);
-         }
+            RightTime(.55,1000);
+            LeftTime(.25,320);
+            DriveForwardTime(.5, 700);
+        }
 
             // e.g.
             if(tagOfInterest.pose.x <= 20)
@@ -234,7 +235,7 @@ public class Blue_OpenCV extends LinearOpMode
         /* You wouldn't have this in your autonomous, this is just to prevent the sample from ending */
         while (opModeIsActive()) {sleep(20);}
     }
-    public void DriveForward(double power)  {motorFrontLeft.setPower(power);
+    public void DriveForward(double power)  {
         motorFrontLeft.setPower(power);
         motorFrontRight.setPower(power);
         motorBackLeft.setPower(power);
